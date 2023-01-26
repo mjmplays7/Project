@@ -1,0 +1,24 @@
+{% extends "sorena/layout.html" %}
+
+{% block body %}
+    <header>
+        <div class="header_banner">
+            <a id="info_main" class="header_main" href="{% url 'sorena:info' %}"><h1>ثبت اطلاعات ورزش کار</h1></a>
+            <a class="back_btn" href="{% url 'sorena:index' %}">بازگشت</a>
+        </div>
+    </header>
+    <section>
+        <h1 class="form_title">اطلاعات خود را وارد کنید:</h1>
+        <form action="{% url 'sorena:info' %}" method="post">
+            {% csrf_token %}
+            <h4 class="form_txt">نام:</h4><input class="form_input" type="text" name="name" placeholder="نام">
+            <h4 class="form_txt">نام خانوادگی:</h4><input class="form_input" type="text" name="last" placeholder="نام خانوادگی">
+            <h4 class="form_txt">کدملی:</h4><input class="form_input" type="number" name="national_id" placeholder="کدملی">
+            <h4 class="form_txt">شماره تلفن:</h4><input class="form_input" type="number" name="number" placeholder="شماره تلفن">
+            <h4 class="form_txt">تاریخ تولد:</h4><input class="form_input" type="number" name="birthday" placeholder="روز" min="1" max="31"><input class="form_input" type="number" name="birthmonth" placeholder="ماه" min="1" max="12"><input class="form_input" type="number" name="birthyear" placeholder="سال" min="1300" max="1401">
+            <h4 class="form_txt">تاریخ شروع بیمه:</h4><p class="form_txt">در صورتی که نمی دانید خالی بگذارید.</p><input class="form_input" type="number" name="start_insurance_day" placeholder="روز" min="1" max="31"><input class="form_input" type="number" name="start_insurance_month" placeholder="ماه" min="1" max="12"><input class="form_input" type="number" name="start_insurance_year" placeholder="سال" min="1300" max="1401">        
+            <input id="form_submit" class="form_input" type="submit" value="ثبت اطلاعات">
+        </form>
+    </section>
+  
+{% endblock body %}

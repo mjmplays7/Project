@@ -1,0 +1,168 @@
+/* general html */
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    
+}
+body{
+    background-color: #c5c5c5;
+}
+
+
+/* index.html */
+.header_banner{
+    background-color: #2374AB;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: inline-block;
+    text-align: center;
+    
+}
+.header_main{
+    color: black;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.2rem;
+}
+.btn_list{
+    text-align: center;
+    display: inline;
+    margin: 5px;
+}
+.big_btn{
+    transition: 0.5s;
+    padding: 5px;
+    margin: 5px;
+    display: inline-block;
+    background-color: #4DCCBD;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 25px;
+}
+
+.small_btn{
+    transition: 0.5s;
+    padding: 5px;
+    width: 43%;
+    max-width: 280px;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #4DCCBD;
+    display: inline-block;
+    border-radius: 25px;
+}
+.btn_txt{
+    color: black;
+    font-size: 2rem;
+}
+#sorena_btn{
+    transition: 0.5s;
+    background-color: #EE2E31;
+}
+.small_btn:hover, .big_btn:hover{
+    transition: 0.5s;
+    background-color: #40afa2;
+}
+#sorena_btn:hover{
+    transition: 0.5s;
+    background-color: #d1282b;
+}
+.cover_list{
+    display: block;
+    text-align: center;
+    
+    padding: 5px;
+    
+}
+.covers_title{
+    color: black;
+    direction: rtl;
+    text-align: center;
+    padding: 10px;
+    display: inline;
+}
+.cover_box{
+    
+    width: 40%;
+    max-width: 300px;
+    display: inline-block;
+    margin: 5px;
+
+}
+.cover_main{
+    width: 100%;
+    text-align: center;
+}
+.cover_txt{
+    color: black;
+    font-size: inherit;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: right;
+    
+}
+/* login html */
+.form_title{
+    text-align: center;
+    margin: 5px;
+}
+.form_txt{
+    text-align: center;
+}
+.form_input{
+    text-align: center;
+    margin: auto;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 80%;
+    max-width: 250px;
+    color: black;
+    background-color: #ffffff;
+    height: 20px;
+    border-radius: 25px;
+    border-color: #2374AB;
+}
+.form_input::placeholder{
+    color: black;
+}
+#form_submit{
+    background-color: #4DCCBD;
+    height: 30px;
+}
+#info_main{
+    font-size: small;
+}
+.back_btn{
+    transition: 0.5s;
+    display: block;
+    float: left;
+    margin: 3px;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: #EE2E31;
+    color: black;
+}
+.back_btn:hover{
+    transition: 0.5s;
+    background-color: #d1282b;
+}
+.form_list{
+    display: inline;
+    text-align: center;
+    margin: 5px;
+}
+.form_btn{
+    text-align: center;
+    display: inline-block;
+    width: 80%;
+    max-width: 250px;
+    border-radius: 25px;
+    padding: 5px;
+    background-color: #4DCCBD;
+    color: black;
+}

@@ -1,0 +1,21 @@
+{% extends "main/layout.html" %}
+
+{% block body %}
+    <section>
+        <h1 class="form_title">ثبت نام:</h1>
+        <p class="form_txt">{{message}}</p>
+        <form action="{% url 'main:register' %}" method="post">
+            {% csrf_token %}
+    
+            <input class="form_input" type="text" name="name" placeholder="نام خود را وارد کنید" required min>
+            <input class="form_input" type="text" name="last" placeholder="نام خانوادگی خود را وارد کنید" required>        
+            <input class="form_input" type="email" name="email" placeholder="ایمیل خود را وارد کنید" required>
+            <input class="form_input" type="text" name="number" placeholder="شماره تلفن خود را وارد کنید" required>
+            <input class="form_input" type="text" name="username" placeholder=" یک نام کاربری انتخاب کنید" required>
+            <input class="form_input" type="password" name="password" placeholder="رمز خود را وارد کنید" required>
+            <input class="form_input" type="password" name="re_password" placeholder="رمز خود را دوباره وارد کنید" required>
+            <input id="form_submit" class="form_input" type="submit" value="ثبت نام">
+        </form>
+    </section>
+
+{% endblock body %}

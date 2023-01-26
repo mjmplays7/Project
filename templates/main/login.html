@@ -1,0 +1,24 @@
+{% extends "main/layout.html" %}
+
+{% block body %}
+    <header>
+        <div class="header_banner">
+            <a id="info_main" class="header_main" href="{% url 'main:login' %}"><h1>ورود به حساب کاربری</h1></a>
+            <a class="back_btn" href="{% url 'main:index' %}">بازگشت</a>
+        </div>
+    </header>
+    <section>
+        <h2 class="form_title">ورود به حساب کاربری:</h2>
+        <p class="form_txt">{{message}}</p>
+        <form action="{% url 'main:login' %}" method="post">
+            {% csrf_token %}
+            <input class="form_input" type="text" name="username" placeholder="نام کاربری">
+            <input class="form_input" type="password" name="password" placeholder="رمزعبور">
+            <input id="form_submit" class="form_input" type="submit" value="ورود">
+        </form>
+        <div class="form_list">
+            <h3 class="form_title">حساب کاربری ندارید؟</h3>
+            <div><a class="form_btn" href="{% url 'main:register' %}"><h4>ثبت نام کنید</h4></a></div>
+        </div>
+    </section>
+{% endblock body %}

@@ -1,0 +1,36 @@
+{% extends "sorena/layout.html" %}
+
+{% block body %}
+    <h1>Panel Admin</h1>
+    <a href="{% url 'sorena:logout' %}">log out</a>
+    <table>
+        <tr>
+            <th>ردیف</th>
+            <th>نام</th>
+            <th>نام خانوادگی</th>
+            <th>کدملی</th>
+            <th>تاریخ تولد</th>
+            <th>شماره تلفن</th>
+            <th>شروع بیمه</th>
+            <th>پایان بیمه</th>
+        </tr>
+        {% for user in Sorena_Users %}
+            
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.last}}</td>
+                    <td>{{user.national_id}}</td>
+                    <td>{{user.birthyear}}/{{user.birthmonth}}/{{user.birthday}}</td>
+                    <td>{{user.number}}</td>
+                    <td>{{user.start_insurance_year}}/{{user.start_insurance_month}}/{{user.start_insurance_day}}</td>
+                    <td>{{user.end_insurance_year}}/{{user.start_insurance_month}}/{{user.start_insurance_day}}</td>
+                </tr>          
+              
+            
+            
+        {% endfor %}
+
+
+    </table>
+{% endblock body %}

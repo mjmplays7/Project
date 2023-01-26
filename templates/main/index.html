@@ -1,0 +1,74 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+    <header>
+        <div class="header_banner">
+            <a class="header_main" href="{% url 'main:index' %}"><h1>Taek Media</h1></a>
+       </div>
+    </header>
+    <section>
+
+        <div class="btn_list">
+            <div>
+                <a id="sorena_btn" class="big_btn" href="{% url 'sorena:index' %}"><h2 class="btn_txt">باشگاه ورزشی سورنا</h2></a>
+            </div>
+            <div>
+                <a class="big_btn" href="{% url 'main:panel' %}"><h2 class="btn_txt">ورود به حساب کاربری</h2></a>
+            </div>
+            <div>
+                <a class="big_btn" href="{% url 'main:videos' %}"><h2 class="btn_txt">محتوای ویدیویی</h2></a>
+            </div>
+            <div>
+                <a class="big_btn" href="{% url 'main:edu' %}"><h2 class="btn_txt">آموزش تکواندو</h2></a>
+            </div>
+            <div>
+                <a class="small_btn" target="_blank" href="https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%D9%88%D8%A7%D9%86%D8%AF%D9%88#"><h2 class="btn_txt">دربارۀ تکواندو</h2></a>
+                <a class="small_btn" href="{% url 'main:edu' %}"><h2 class="btn_txt">دربارۀ ما</h2></a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="cover_list">
+            <div>
+                <a class="covers_title" href="{% url 'main:edu' %}"><h1>آموزش تکواندو:</h1></a>
+            </div>
+                
+            {% for content in contents %}
+                
+                <div class="cover_box">
+                    <a href="{{content.get_absolute_url}}">
+                        <img class="cover_main" src="{{content.cover.url}}" alt="img">
+                        <h2 class="cover_txt">{{content.title}}</h2>   
+                    </a>
+                </div>
+                
+            {% endfor %}
+        </div>
+    </section>
+    <section>
+        <div class="cover_list">
+            <div>
+                <a class="covers_title" href="{% url 'main:videos' %}"><h1>محتوای ویدیویی:</h1></a>
+            </div>
+                
+            {% for video in videos %}
+                
+                <div class="cover_box">
+                    <a href="{{video.get_absolute_url}}">
+                        <img class="cover_main" src="{{video.cover.url}}" alt="img">
+                        <h2 class="cover_txt">{{video.title}}</h2>   
+                    </a>
+                </div>
+                
+            {% endfor %}
+        </div>
+    </section>
+    <footer>
+        <div class="footer_container">
+            <h3 class="copyright_txt">Copyright © 2022 Shin Dev.  All rights reserved</h3>
+        </div>
+    </footer>
+
+{% endblock %}

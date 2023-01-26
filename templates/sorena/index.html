@@ -1,0 +1,29 @@
+{% extends "sorena/layout.html" %}
+
+
+{% block body %}
+    <header>
+        <div class="header_banner">
+            <a class="header_main" href="{% url 'sorena:index' %}"><h1>باشگاه ورزشی سورنا</h1></a>
+       </div>
+    </header>
+    <section>
+        <div class="btn_list">
+            <div>
+                <a class="big_btn" href="{% url 'sorena:info' %}"><h2 class="btn_txt">ثبت اطلاعات ورزش کار</h2></a>
+            </div>
+            <div>
+                <a class="big_btn" href="{% url 'sorena:index' %}"><h2 class="btn_txt">لیست کلاس های ورزشی</h2></a>
+            </div>
+            <div>
+                <a class="small_btn" href="{% url 'sorena:about' %}"><h2 class="btn_txt">تماس با ما</h2></a>
+                <a class="small_btn" href="{% url 'sorena:about' %}"><h2 class="btn_txt">دربارۀ ما</h2></a>
+            </div>
+            <div>
+                <a id="taekmedia_btn" class="big_btn" href="{% url 'main:index' %}"><h2 class="btn_txt">Taek Media</h2></a>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock body %}
