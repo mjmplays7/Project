@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pxpy8($6!#2*u8c-d^_b_z))prg+h0#^+h@w!h(e*=ke#z85$g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['taekmedia.ir']
+ALLOWED_HOSTS = []
 
 
 # Application definition
