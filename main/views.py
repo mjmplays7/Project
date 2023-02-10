@@ -5,12 +5,14 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import make_password
+
 
 
 # Create your views here.
 def index(request):
-    contents = Content.publish.all()[:4]
-    videos = Video.publish.all()[:4]
+    contents = Content.publish.all()[:3]
+    videos = Video.publish.all()[:3]
     return render(request, "main/index.html", {
         "contents": contents,
         "videos": videos
@@ -114,7 +116,7 @@ def register_view(request):
             username = request.POST['username']
             password = request.POST['password']
 
-            user = User(first_name=name, last_name=last, email=email, username=username, password=password)
+            user = User(first_name=name, last_name=last, email=email, username=username, password=make_password(password))
             user.save()
             if not User.objects.get(username=request.POST['username']):
                 return render(request, "main/register.html", {
@@ -140,17 +142,42 @@ def login_view(request):
             return HttpResponseRedirect(reverse('main:panel'))
         else:
             return render(request, 'main/login.html', {
-                "message": "اطلاعات اشتباه است"
+                "message": "نام کاربری یا رمزعبور اشتباه است."
             })
-
+        
     return render(request, 'main/login.html')
 
 def logout_view(request):
     logout(request)
-    return render(request, 'main/login.html',{
-        "message": "از حساب خود خارج شدید"
-    })
+    return HttpResponseRedirect(reverse('main:login'))
+
 def panel(request):
     if not request.user.is_authenticated: 
         return HttpResponseRedirect(reverse('main:login'))
-    return render(request, "main/panel.html")
+    if request.method == 'POST':
+        name = request.POST['name']
+        last = request.POST['last']
+        email = request.POST['email']
+
+        user = User.objects.get(username=request.user)
+        user.first_name = name
+        user.last_name = last
+        user.email = email
+        user.save()
+    
+    courses = []
+    contents = Content.publish.all()
+    for content in contents:
+        try:
+            Main_User.objects.get(username=request.user, bought=content.id)
+            courses.append(content) 
+        except Main_User.DoesNotExist:
+            pass
+
+    return render(request, "main/panel.html", {
+        "user": User.objects.get(username=request.user),
+        "courses": courses,
+    })
+
+def about(request):
+    return render(request, "main/aboutus.html")

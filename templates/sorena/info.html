@@ -9,14 +9,32 @@
     </header>
     <section>
         <h1 class="form_title">اطلاعات خود را وارد کنید:</h1>
+        <p class="form_txt">{{message}}</p>
         <form action="{% url 'sorena:info' %}" method="post">
             {% csrf_token %}
-            <h4 class="form_txt">نام:</h4><input class="form_input" type="text" name="name" placeholder="نام">
-            <h4 class="form_txt">نام خانوادگی:</h4><input class="form_input" type="text" name="last" placeholder="نام خانوادگی">
-            <h4 class="form_txt">کدملی:</h4><input class="form_input" type="number" name="national_id" placeholder="کدملی">
-            <h4 class="form_txt">شماره تلفن:</h4><input class="form_input" type="number" name="number" placeholder="شماره تلفن">
-            <h4 class="form_txt">تاریخ تولد:</h4><input class="form_input" type="number" name="birthday" placeholder="روز" min="1" max="31"><input class="form_input" type="number" name="birthmonth" placeholder="ماه" min="1" max="12"><input class="form_input" type="number" name="birthyear" placeholder="سال" min="1300" max="1401">
-            <h4 class="form_txt">تاریخ شروع بیمه:</h4><p class="form_txt">در صورتی که نمی دانید خالی بگذارید.</p><input class="form_input" type="number" name="start_insurance_day" placeholder="روز" min="1" max="31"><input class="form_input" type="number" name="start_insurance_month" placeholder="ماه" min="1" max="12"><input class="form_input" type="number" name="start_insurance_year" placeholder="سال" min="1300" max="1401">        
+            <h4 class="form_txt">نام:</h4><input class="form_input" type="text" name="name" placeholder="نام" required>
+            <h4 class="form_txt">نام خانوادگی:</h4><input class="form_input" type="text" name="last" placeholder="نام خانوادگی" required>
+            <h4 class="form_txt">کدملی:</h4><input class="form_input" type="number" name="national" placeholder="کدملی" required>
+            <h4 class="form_txt">شماره تلفن:</h4><input class="form_input" type="number" name="number" placeholder="شماره تلفن" required>
+            <h4 class="form_txt">تاریخ تولد:</h4><input class="form_input" type="number" name="birthday" placeholder="روز" min="1" max="31" required><input class="form_input" type="number" name="birthmonth" placeholder="ماه" min="1" max="12" required><input class="form_input" type="number" name="birthyear" placeholder="سال" min="1300" max="1401" required>
+            <h4 class="form_txt">رشته ورزشی:</h4><select required class="form_input" name="field">
+                <optgroup>
+                    <option value="0" disabled selected>رشته ورزشی</option>
+                    {% for f in field %}
+                    <option value="{{f.id}}">{{f}}</option>
+                    {% endfor %}
+                </optgroup>
+            </select>
+            <h4 class="form_txt">مربی:</h4><select required class="form_input" name="coach">
+                <optgroup>
+                    <option value="0" disabled selected>مربی</option>
+                    {% for c in coach %}
+                    <option value="{{c.id}}">{{c.name}}</option>
+                    {% endfor %}
+                </optgroup>
+            </select>
+            <h4 class="form_txt">تاریخ شروع بیمه ورزشی:</h4><p id="form_message" class="form_txt">در صورتی که نمی دانید خالی بگذارید.</p><input class="form_input" type="number" name="start_insurance_day" placeholder="روز" min="1" max="31"><input class="form_input" type="number" name="start_insurance_month" placeholder="ماه" min="1" max="12"><input class="form_input" type="number" name="start_insurance_year" placeholder="سال" min="1300" max="1401" requ>        
+            <br> 
             <input id="form_submit" class="form_input" type="submit" value="ثبت اطلاعات">
         </form>
     </section>

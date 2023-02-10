@@ -1,0 +1,25 @@
+{% extends "sorena/layout.html" %}
+
+{% block body %}
+    <header>
+        <div class="header_banner">
+            <a id="info_main" class="header_main" href="{% url 'sorena:contact' %}"><h1>دربارۀ ما</h1></a>
+            <a href="{% url 'sorena:index' %}" class="back_btn"><p class="back_btn_text">بازگشت</p></a>
+            
+        </div>
+    </header>
+    <section>
+        <div class="about_div">
+            <h2 class="about_txt">تلفن باشگاه ورزشی سورنا:</h2>
+            {% for g in gym %}
+                <p class="about_txt"><span class="bold">{{g.gym}}</span> : {{g.number}}</p>
+            {% endfor %}
+        </div>
+        <div class="about_div">
+            <h2 class="about_txt">آدرس باشگاه ورزشی سورنا:</h2>
+            {% for g in gym %}
+                <p class="about_txt"><span class="bold">{{g.gym}}</span> : {{g.address}}</p>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock body %}

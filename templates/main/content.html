@@ -1,4 +1,27 @@
-<h1>{{video.title}}</h1>
-<hr>
-<h3>{{video.content}}</h3>
-<video src="{{video.content.url}}"></video>
+{% extends "main/layout.html" %}
+
+{% block body %}
+    <header>
+        <div class="header_banner">
+            <a id="info_main" class="header_main" href=""><h1>محتوای ویدیویی</h1></a>
+            <a class="back_btn" href="{% url 'main:videos' %}">بازگشت</a>
+        </div>
+    </header>
+    <section>
+        <div class="ow_container">
+            <video class="ow_img" controls>
+                <source src="{{video.content.url}}" type="video/mp4">
+              Your browser does not support the video tag.
+              </video>
+            <div class="ow_title">
+                <h2>{{video.title}}</h2>
+            </div>
+        </div>
+        <div class="ow_description">
+            <p class="ow_txt">
+                {{video.description}}
+            </p>
+        </div>
+    </section>
+
+{% endblock body %}

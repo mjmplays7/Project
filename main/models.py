@@ -82,6 +82,9 @@ class Content(models.Model):
     def get_absolute_url(self):
         return reverse("main:edu_content", kwargs = {"slug": self.slug})
 
+    def __str__(self):
+        return f"Title: {self.title}, id: {self.id}"
+
 
     objects = models.Manager()
     publish = PublishedManager()
@@ -92,7 +95,8 @@ class Main_User(models.Model):
     number = models.CharField(default=00000000000, max_length=11, validators=[MinLengthValidator(11)])
     
     def __str__(self):
-        return f"Username: {self.username}, Bought: {self.bought}"
+        bought = ','.join(str(b) for b in self.bought.all())
+        return f"{bought}"
 
 
 class User_Order(models.Model):

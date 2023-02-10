@@ -3,22 +3,26 @@
 {% block body %}
     <header>
         <div class="header_banner">
+            <a id="info_main" class="header_main" href="{% url 'main:edu' %}"><h1>آموزش تکواندو</h1></a>
             <a href="{% url 'main:index' %}" class="back_btn">بازگشت</a>
         </div>
     </header>
     <section>
-        <div>
+        <div class="cover_list">
+
+                
             {% for content in contents %}
                 
-                <div>
-                    <a  href="{{content.get_absolute_url}}">
-                        <img  src="{{content.cover.url}}" alt="img">
-                        <h2>{{content.title}}</h2>   
+                <div class="cover_box">
+                    <a href="{{content.get_absolute_url}}">
+                        <img class="cover_main" src="{{content.cover.url}}" alt="img">
+                        <h2 class="cover_txt">{{content.title}}</h2>   
                     </a>
                 </div>
                 
             {% endfor %}
         </div>
-    </section>
+    </section>    
+
 
 {% endblock %}

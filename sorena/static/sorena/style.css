@@ -24,6 +24,7 @@ body{
     display: inline-block;
     font-size: 1.2rem;
 }
+
 .btn_list{
     text-align: center;
     display: inline;
@@ -79,6 +80,9 @@ body{
 .form_txt{
     text-align: center;
 }
+#form_message{
+    color: red;
+}
 .form_input{
     text-align: center;
     margin: auto;
@@ -116,4 +120,70 @@ body{
 .back_btn:hover{
     transition: 0.5s;
     background-color: #d1282b;
+}
+.form_optg{
+    text-align: center;
+}
+.form_opt{
+    text-align: center;
+}
+
+/* schedule html */
+
+.table_div{
+   
+    margin: 5px;
+    text-align: center;    
+    width: 80%;
+    overflow-x: auto;
+    
+}
+.table{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+}
+.th{
+    
+    padding: 5px;
+    border: 1px solid #2374AB;
+    min-width: 100px;
+    width: 100%;
+    background-color: #EE2E31;
+    
+}
+.td{
+    
+    padding: 5px;
+    border: 1px solid #2374AB;
+    background-color: #4DCCBD;
+    min-width: 100px;
+    width: 100%;
+}
+.t_txt{
+    text-align: center;
+}
+
+/* about */
+.about_div{
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    padding: 5px;
+    width: 80%;
+    max-width: 600px;
+    background-color: rgb(241, 241, 241);
+    border-radius: 25px;
+}
+.about_txt{
+    display: block;
+    text-align: right;
+    margin: 3px;
+    font-family: lalezar;
+}
+
+.bold{
+    font-weight: bold;
 }

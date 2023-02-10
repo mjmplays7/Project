@@ -7,10 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorena GYM</title>
     <link rel="stylesheet" href="{% static 'sorena/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        (function(){
+        var now = new Date();
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.async = true;
+        var script_address = 'https://cdn.yektanet.com/js/taekmedia.ir/native-taekmedia.ir-29873.js';
+        script.src = script_address + '?v=' + now.getFullYear().toString() + '0' + now.getMonth() + '0' + now.getDate() + '0' + now.getHours();
+        head.appendChild(script);
+        })();
+    </script>
 </head>
 <body dir="rtl">
     {% block body %}
 
     {% endblock body %}
+
 </body>
 </html>

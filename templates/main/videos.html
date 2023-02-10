@@ -3,18 +3,20 @@
 {% block body %}
     <header>
         <div class="header_banner">
+            <a id="info_main" class="header_main" href="{% url 'main:videos' %}"><h1>محتوای ویدیویی</h1></a>
             <a href="{% url 'main:index' %}" class="back_btn"><p class="back_btn_text">بازگشت</p></a>
             
         </div>
     </header>
     <section>
         <div class="cover_list">
+                
             {% for video in videos %}
                 
                 <div class="cover_box">
-                    <a  href="{{video.get_absolute_url}}">
-                        <img class="cover_img" src="{{video.cover.url}}" alt="img">
-                        <h2 class="cover_title">{{video.title}}</h2>   
+                    <a href="{{video.get_absolute_url}}">
+                        <img class="cover_main" src="{{video.cover.url}}" alt="img">
+                        <h2 class="cover_txt">{{video.title}}</h2>   
                     </a>
                 </div>
                 

@@ -1,9 +1,10 @@
 /* general html */
+
 *{
     margin: 0;
     padding: 0;
     text-decoration: none;
-    
+    font-family: vazirmatn;    
 }
 body{
     background-color: #c5c5c5;
@@ -63,7 +64,7 @@ body{
     transition: 0.5s;
     background-color: #EE2E31;
 }
-.small_btn:hover, .big_btn:hover{
+.small_btn:hover, .big_btn:hover, .ow_btn:hover, #form_submit:hover{
     transition: 0.5s;
     background-color: #40afa2;
 }
@@ -74,7 +75,6 @@ body{
 .cover_list{
     display: block;
     text-align: center;
-    
     padding: 5px;
     
 }
@@ -133,6 +133,7 @@ body{
 #form_submit{
     background-color: #4DCCBD;
     height: 30px;
+    transition: 0.5s;
 }
 #info_main{
     font-size: small;
@@ -165,4 +166,100 @@ body{
     padding: 5px;
     background-color: #4DCCBD;
     color: black;
+}
+/* panel html */
+.out_btn{
+    transition: 0.5s;
+    display: block;
+    float: right;
+    margin: 3px;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: #EE2E31;
+    color: black;
+}
+/* about */
+.about_div{
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    padding: 5px;
+    width: 80%;
+    max-width: 600px;
+    background-color: rgb(241, 241, 241);
+    border-radius: 25px;
+}
+.about_txt{
+    display: block;
+    text-align: right;
+    margin: 3px;
+    font-family: lalezar;
+}
+.about_coffee{
+    margin: auto;
+    margin-top: 5px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+
+.super{
+    text-align: center;
+    max-width: 100%;
+}
+/* overview html */
+.ow{
+    display: block;
+    margin: auto;
+}
+.ow_container{
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+.ow_title{
+    width: 99%;
+    margin: 5px;
+    font-size: medium;
+    overflow: hidden;
+    text-align: center;
+}
+.ow_img{
+    width: 80%;
+    max-width: 480px;
+    text-align: right;
+    margin: 5px;
+    border-radius: .5rem;
+}
+.ow_description{
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    padding: 5px;
+    width: 80%;
+    max-width: 480px;
+    border-radius: 25px;
+}
+.ow_txt{
+    display: block;
+    text-align: right;
+    margin: 3px;
+    font-family: lalezar;
+    overflow-wrap: break-word;
+}
+.ow_price{
+    font-size: 1.5rem;
+    color: #EE2E31;
+    font-family: lalezar;    
+
+}
+.ow_btn{
+    margin: 5px;
+    padding: 5px;
+    background-color: #4DCCBD;
+    border-radius: 10px;
+    border-color: #2374AB;
+    color: black;
+    transition: 0.5s;
 }

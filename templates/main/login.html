@@ -12,7 +12,7 @@
         <p class="form_txt">{{message}}</p>
         <form action="{% url 'main:login' %}" method="post">
             {% csrf_token %}
-            <input class="form_input" type="text" name="username" placeholder="نام کاربری">
+            <input class="form_input" type="username" name="username" placeholder="نام کاربری">
             <input class="form_input" type="password" name="password" placeholder="رمزعبور">
             <input id="form_submit" class="form_input" type="submit" value="ورود">
         </form>

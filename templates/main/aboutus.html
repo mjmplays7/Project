@@ -1,0 +1,25 @@
+{% extends "main/layout.html" %}
+
+{% block body %}
+    <header>
+        <div class="header_banner">
+            <a id="info_main" class="header_main" href="{% url 'main:about' %}"><h1>دربارۀ ما</h1></a>
+            <a href="{% url 'main:index' %}" class="back_btn"><p class="back_btn_text">بازگشت</p></a>
+            
+        </div>
+    </header>
+    <section>
+        <div class="about_div">
+            <p class="about_txt">با سلام.</p>
+            <p class="about_txt">ما در Taek Sport برای تکواندوکاران عزیز محیطی را به وجود آورده ایم تا بتوانند درکنار ورزش خود در این مکان از آموزش های مورد نیاز بهره ببرند.</p>
+            <p class="about_txt">در آینده امکانات جدید و مفید بیشتری در اختیار شما قرار می گیرد.</p>
+            <p class="about_txt">امیدواریم این وب سایت برای شما مفید واقع شده باشد.</p>
+            <p class="about_txt">توسعه داده شده توسط Shin Dev.</p>
+        </div>
+    </section>
+    <section>
+        <div class="about_coffee">
+            <a href="https://www.coffeebede.com/mohammadmoein"><img class="img-fluid about_coffee" src="https://coffeebede.ir/DashboardTemplateV2/app-assets/images/banner/default-yellow.svg" /></a>
+        </div>
+    </section>
+{% endblock body %}

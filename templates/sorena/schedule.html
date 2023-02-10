@@ -1,0 +1,36 @@
+{% extends "sorena/layout.html" %}
+{% load static %}
+{% block body %}
+    
+    <header>
+        <div class="header_banner">
+            <a id="info_main" class="header_main" href="{% url 'sorena:info' %}"><h1 id="">زمان برگزاری کلاس ها</h1></a>
+            <a class="back_btn" href="{% url 'sorena:index' %}">بازگشت</a>
+        </div>
+    </header>
+    <section>
+        <div class="table_div">
+            <h1 class="t_txt">زمان برگزاری کلاس ها:</h1>
+
+            <table class="table">
+                <tr class="trow">
+                    <th class="th">رشته ورزشی</th>
+                    <th class="th">مربی</th>
+                    <th class="th">روز برگزاری</th>
+                    <th class="th">ساعت برگزاری</th>
+                    <th class="th">باشگاه</th>
+                </tr>
+                {% for time in times %}
+                    <tr class="trow">
+                        <td class="td">{{time.field}}</td>
+                        <td class="td">{{time.coach}}</td>
+                        <td class="td">{{time.day}}</td>
+                        <td class="td">{{time.time}}</td>
+                        <td class="td">{{time.gym}}</td>
+                    </tr>
+                  
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+{% endblock body %}

@@ -13,23 +13,56 @@ def info(request):
         name = request.POST['name']
         last = request.POST['last']
         number = request.POST['number']
-        national_id = request.POST['national_id']
+        national = request.POST['national']
         birthyear = request.POST['birthyear']
         birthmonth = request.POST['birthmonth']        
         birthday = request.POST['birthday']
         start_insurance_year = request.POST['start_insurance_year']
         start_insurance_month = request.POST['start_insurance_month']
         start_insurance_day = request.POST['start_insurance_day']
+        field = request.POST['field']
+        coach = request.POST['coach']
+        if not len(number) > 10:
+            return HttpResponseRedirect(reverse('sorena:info'))
+        if not len(national) > 9:
+            return HttpResponseRedirect(reverse('sorena:info'))
+        if field == "0":
+            return HttpResponseRedirect(reverse('sorena:info'))
+        if coach == "0":
+            return HttpResponseRedirect(reverse('sorena:info'))
         
-        user = Sorena_User(name=name, last=last, number=number,national_id=national_id, birthyear=birthyear, birthmonth=birthmonth, birthday=birthday, start_insurance_year=start_insurance_year, start_insurance_month=start_insurance_month, start_insurance_day=start_insurance_day)
+        if start_insurance_year == "":
+            start_insurance_year = 0
+        if start_insurance_month == "":
+            start_insurance_month = 0
+        if start_insurance_day == "":
+            start_insurance_day = 0
+        
+        user = Sorena_User(name=name, last=last, number=number,national=national, 
+                           birthyear=birthyear, birthmonth=birthmonth, birthday=birthday, 
+                           start_insurance_year=start_insurance_year, 
+                           start_insurance_month=start_insurance_month, 
+                           start_insurance_day=start_insurance_day, coach_id=coach, field_id=field,)
         user.save()
     
-        return HttpResponseRedirect(reverse('sorena:info'))
-    return render(request, "sorena/info.html")
+        return render(request, "sorena/info.html", {
+            "message": "اطلاعات ذخیره شد",
+            "field": Field.objects.all(),
+            "coach": Coach.objects.all()
+        })
+    return render(request, "sorena/info.html", {
+        "field": Field.objects.all(),
+        "coach": Coach.objects.all()
+    })
 
 
 def about(request):
-    return render(request, "sorena/about.html")
+    gym = Gym.objects.all()
+    fields = Field.objects.all()
+    return render(request, "sorena/about.html", {
+        "gym": gym,
+        "fields": fields
+    })
 
 def admin(request):
     try:
@@ -79,7 +112,16 @@ def logout_view(request):
         "message": "خارج شدید"
     })
 
+def schedule(request):
+    return render(request, "sorena/schedule.html", {
+        "times": Time.objects.all()
+    })
 
+def contact(request):
+    gym = Gym.objects.all()
+    return render(request, "sorena/contact.html", {
+        "gym": gym
+    })
 
 
 

@@ -2,5 +2,35 @@
 
 
 {% block body %}
-  
+    <header>
+        <div class="header_banner">
+            <a id="info_main" class="header_main" ><h1>محتوای آموزشی</h1></a>
+            <a class="back_btn" href="{% url 'main:index' %}">بازگشت</a>
+        </div>
+    </header>
+    <section>
+        <div class="ow">
+            <div class="ow_container">
+                <img class="ow_img"  src="{{content.cover.url}}" alt="">
+                <div class="ow_title">
+                    <h2>{{content.title}}</h2>
+                </div>
+            </div>
+            <div class="ow_description">
+                <p class="ow_txt">
+                    {{content.description}}
+                    <br>
+                    <span class="ow_price">برای دانلود محتوای آموزشی روی دکمه زیر کلیک کنید</span>
+                </p>
+                <a class="ow_btn" href="{{content.content.url}}" download="{{content.title}}">دانلود محتوای آموزشی</a>
+                
+            </div>
+        </div>
+        
+    </section>
+    <section>
+        <div>
+            <p>د</p>
+        </div>
+    </section>
 {% endblock body %}

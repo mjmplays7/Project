@@ -1,0 +1,42 @@
+{% extends "main/layout.html" %}
+
+{% block body %}
+    <header>
+        <div class="header_banner">
+            <a class="out_btn" href="{% url 'main:logout' %}">خروج</a>
+            <a id="info_main" class="header_main" href="{% url 'main:login' %}"><h1>پنل کاربری</h1></a>
+            <a class="back_btn" href="{% url 'main:index' %}">بازگشت</a>
+        </div>
+    </header>
+    <section>
+        <form action="{% url 'main:panel' %}" method="post">
+            {% csrf_token %}
+            <h4 class="form_txt">نام:</h4><input class="form_input" type="text" name="name" value="{{user.first_name}}" placeholder="نام خود را وارد کنید" required >
+            <h4 class="form_txt">نام خانوادگی:</h4><input class="form_input" type="text" name="last" value="{{user.last_name}}" placeholder="نام خانوادگی خود را وارد کنید" required>        
+            <h4 class="form_txt">ایمیل:</h4><input class="form_input" type="email" name="email" value="{{user.email}}" placeholder="ایمیل خود را وارد کنید" required>
+            <input id="form_submit" class="form_input" type="submit" value="ذخیره اطلاعات">
+        </form>
+    </section>
+    <br>
+    <section>
+        <div class="cover_list">
+            <div>
+                <h2 class="covers_title">دوره های خریداری شده:</h2>
+            </div>
+            
+                {% for course in courses %}
+                <div class="cover_box">
+                    <a href="{% url 'main:edu_course' course.slug %}">
+                        <img class="cover_main" src="{{course.cover.url}}" alt="img">
+                        <h2 class="cover_txt">{{course.title}}</h2>   
+                    </a>
+                </div>
+            
+                {% endfor %}
+            
+                    
+            
+
+        </div>
+    </section>
+{% endblock body %}
